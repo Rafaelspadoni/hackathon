@@ -1,0 +1,38 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+nav{
+    background-color: #0080FF;
+    box-shadow: 0 0 5px 0 black;
+}
+.nav-link{
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 600;
+}
+.nav-link p{
+	padding: 0;
+	margin: 0;
+	color: white;
+
+}
+.navbar-light .navbar-toggler {
+	border-color: white;
+}
+.navbar-collapse{
+	justify-content: flex-end;
+}
+.navbar{
+	justify-content: flex-end;
+
+}
+
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-transform: uppercase;
+}

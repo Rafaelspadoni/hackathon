@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use  App\Http\Controllers\PerfilController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,5 +22,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/perfil', [PerfilController::class, 'perfil'])->middleware(['auth'])->name('perfil');
+Route::post('/perfil', [PerfilController::class, 'cadastro_telefone'])->middleware(['auth'])->name('cadastra_telefone');
 
 require __DIR__.'/auth.php';
