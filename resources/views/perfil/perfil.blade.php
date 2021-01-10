@@ -4,22 +4,9 @@
 
 @section('conteudo')
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+@foreach ($telefones as $telefone)
+The current value is {{ $telefone [$loop->index]->telefone }}
+@endforeach
 
-<form action="{{ route('cadastra_telefone') }}" method="post">
-
-@csrf
-
-<input type="number" name="telefone" id=""><br>
-<button>Cadastrar!</button>
-</form>
 
 @endsection

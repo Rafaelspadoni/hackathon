@@ -11,7 +11,6 @@ class Perfil extends Model
 {
     use HasFactory;
 
-    public $telefone;
 
     public function cadastra_telefone($id, $telefone)
     {
@@ -26,4 +25,23 @@ class Perfil extends Model
             return false;
         }
     }
+
+    public function show_telefone($id)
+    {
+        $telefones = DB::select(
+            'SELECT telefone FROM telefones WHERE user_id = :id',
+            ['id' => $id]
+        );
+
+        if(!$telefones)
+        {
+            echo 'nenhum telefone cadastrado';
+
+        }else
+        {  
+            return $telefones;
+        }
+    }
+
+
 }

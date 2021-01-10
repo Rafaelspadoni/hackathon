@@ -13,9 +13,23 @@ class PerfilController extends Controller
 {
     public function perfil()
     {
-        return view('perfil.perfil');
+        $id = Auth::user()->id;
+        
+        $telefones = DB::select(
+            'SELECT telefone FROM telefones WHERE user_id = :id',
+            ['id' => $id]
+        );
+
+        
+        var_dump($telefones);
+        //return view('perfil.perfil', ['telefones' => $telefones]); 
     }
 
+    public function telefone_view()
+    {   
+        return view('perfil.telefone');
+    }
+    
     public function cadastro_telefone(Request $request)
     {
         $id = Auth::user()->id;

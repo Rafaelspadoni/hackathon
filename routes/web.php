@@ -27,3 +27,5 @@ Route::get('/perfil', [PerfilController::class, 'perfil'])->middleware(['auth'])
 Route::post('/perfil', [PerfilController::class, 'cadastro_telefone'])->middleware(['auth'])->name('cadastra_telefone');
 
 require __DIR__.'/auth.php';
+
+Route::get('/cadastro/telefone',[PerfilController::class, 'telefone_view'])->middleware(['auth']);
