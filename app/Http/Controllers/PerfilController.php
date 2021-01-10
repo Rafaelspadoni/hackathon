@@ -14,15 +14,15 @@ class PerfilController extends Controller
     public function perfil()
     {
         $id = Auth::user()->id;
+        $nome = Auth::user()->name;
+        $email = Auth::user()->email;
         
-        $telefones = DB::select(
-            'SELECT telefone FROM telefones WHERE user_id = :id',
-            ['id' => $id]
-        );
+        $telefones = new Perfil();
+        $numeros = $telefones->show_telefone($id);
 
         
-        var_dump($telefones);
-        //return view('perfil.perfil', ['telefones' => $telefones]); 
+        // dd($numeros);
+        return view('perfil.perfil', ['telefones' => $numeros, 'nome' => $nome, 'email' => $email]); 
     }
 
     public function telefone_view()
