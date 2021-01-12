@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Perfil;
-
+ 
 class PerfilController extends Controller
 {
     public function perfil()

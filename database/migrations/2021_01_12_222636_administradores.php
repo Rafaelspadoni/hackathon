@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Experiencias extends Migration
+class Administradores extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class Experiencias extends Migration
      */
     public function up()
     {
-        Schema::create('experiencias', function (Blueprint $table) {
+        Schema::create('administradores', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('cargo');
-            $table->string('local');
-            $table->string('descricao');
-            $table->date('data');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class Experiencias extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('experiencias');
+        Schema::dropIfExists('administradores');
     }
 }
