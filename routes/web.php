@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use  App\Http\Controllers\PerfilController;
+use App\Http\Controllers\AcessoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,18 +17,20 @@ use  App\Http\Controllers\PerfilController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/verifica',[AcessoController::class, 'Verifica_logado'])->middleware(['auth']);
 
-Route::get('/perfil', [PerfilController::class, 'perfil'])->middleware(['auth'])->name('perfil');
-Route::post('/perfil', [PerfilController::class, 'cadastro_telefone'])->middleware(['auth'])->name('cadastra_telefone');
+Route::prefix('/usuario')->group( function () {
+    Route::get('/perfil', [PerfilController::class, 'perfil'])->name('perfil');
+    Route::post('/perfil', [PerfilController::class, 'cadastro_telefone'])->middleware(['auth'])->name('cadastra_telefone');
+});
 
 require __DIR__.'/auth.php';
 
 Route::get('/cadastro/telefone',[PerfilController::class, 'telefone_view'])->middleware(['auth']);
 
-Route::get('/empresa/cadastro',[EmpresasController::class, 'empresa'])->middlerware(['auth']);
+Route::get('/empresa/cadastro',[EmpresasController::class, 'empresa'])->middleware(['auth']);
+
+

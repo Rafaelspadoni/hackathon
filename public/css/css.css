@@ -2,6 +2,9 @@
     margin: 0%;
     padding: 0%;
 }
+body{
+    height: 100vh;
+}
 nav{
     background-color: #0080FF;
     box-shadow: 0 0 5px 0 black;
@@ -23,16 +26,84 @@ nav{
 .navbar-collapse{
 	justify-content: flex-end;
 }
-.navbar{
-	justify-content: flex-end;
-
+.logo{
+    justify-content: flex-start;
+    height: 5vh;
 }
 
+/* home */
 
-footer{
+.home{
+    height: 91.5vh;
+}
+
+.img-home{
+    height: 100%;
+    background-image: url('/img/home-img.jpg');
+    background-position: 10% 5%;
+}
+.registro{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    text-transform: uppercase;
+}
+.form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.form-item{
+    width: 100%;
+}
+.form-item input{
+    width: 100%;
+    height: 40px;
+}
+.form-item label{
+    margin-top: 10px;
+    font-weight: 600;
+}
+form button{
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    background-color: #0080FF;
+    border: 3px solid #4ea7ff;
+}
+form button:active{
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    font-weight: 400;
+    background-color: #0080FF;
+    border: 3px solid #ffffff;
+}
+
+
+
+
+
+footer{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* text-transform: uppercase; */
 }
