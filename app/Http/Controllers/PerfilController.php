@@ -22,7 +22,7 @@ class PerfilController extends Controller
 
         
         // dd($numeros);
-        return view('perfil.perfil', ['telefones' => $numeros, 'nome' => $nome, 'email' => $email]); 
+        return view('usuario.perfil', ['telefones' => $numeros, 'nome' => $nome, 'email' => $email]); 
     }
 
     public function telefone_view()

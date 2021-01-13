@@ -9,38 +9,36 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light">
-	<img src="{{ asset('img/logo.png') }}" class="logo" alt="">
+    <img src="{{ asset('img/logo.png') }}" class="logo" alt="">
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarNav">
 	    <ul class="navbar-nav">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="home"><p>Início</p></a>
+	        <a class="nav-link" href="@yield('link')"><p>@yield('nome-link')</p></a>
 	      </li>
-	      <li class="nav-item active">
-	        <a class="nav-link" href="cursos"><p>Cursos</p></a>
-	      </li>
-	      <li class="nav-item active">
-	        <a class="nav-link" href="vagas"><p>Vagas</p></a>
-	      </li>
-		  <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle usuario-logado" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span>{{ Auth::user()->name }} </span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="perfil">Meu Perfil</a>
-          <div class="dropdown-divider"></div>
-          <form action="{{ route('logout') }}" method="post"> @csrf <a class="dropdown-item" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a></form>
-        </div>
-      </li>
 	    </ul>
 	</div>
 </nav>
 
-@yield('conteudo')
+<div class="container-fluid home">
+    <div class="row home">
+        <div class="col-md-7 img-home home">
+        
+        </div>
+        <div class="col-md-5 registro home">
+
+            <div class="form">
+
+                @yield('formulario')
+
+            </div>
+        </div>
+    </div>
+</div>
     
-<footer>{{ config('app.name') }} - 2021</footer>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

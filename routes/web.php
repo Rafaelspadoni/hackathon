@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use  App\Http\Controllers\PerfilController;
-use App\Http\Controllers\AcessoController;
+use  App\Http\Controllers\AcessoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,17 +23,18 @@ Route::get('/', function () {
 Route::get('/verifica',[AcessoController::class, 'Verifica_logado'])->middleware(['auth']);
 
 Route::prefix('/usuario')->group( function () {
-    Route::get('/perfil', [PerfilController::class, 'perfil'])->name('perfil');
-    Route::post('/perfil', [PerfilController::class, 'cadastro_telefone'])->middleware(['auth'])->name('cadastra_telefone');
+
+    Route::get('/perfil', [PerfilController::class, 'perfil'])->middleware(['auth', 'e_usuario']);
+    Route::post('/perfil', [PerfilController::class, 'cadastro_telefone'])->middleware(['auth', 'e_usuario']);
+
+    Route::get('/home', [PerfilController::class, 'perfil'])->middleware(['auth', 'e_usuario']);
 });
 
-require __DIR__.'/auth.php';
+
 
 Route::get('/cadastro/telefone',[PerfilController::class, 'telefone_view'])->middleware(['auth']);
-
-
 
 Route::get('/empresa/cadastro',[EmpresasController::class, 'empresa'])->middleware(['auth']);
 
 
-
+require __DIR__.'/auth.php';

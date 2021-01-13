@@ -26,6 +26,16 @@ nav{
 .navbar-collapse{
 	justify-content: flex-end;
 }
+.usuario-logado{
+    float: left;
+    width: 180px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden !important;
+}
+.usuario-logado span{
+    color: white;
+}
 .logo{
     justify-content: flex-start;
     height: 5vh;
@@ -79,6 +89,7 @@ form{
 form button{
     width: 100%;
     height: 40px;
+    margin-top: 15px;
     cursor: pointer;
     color: white;
     font-weight: 600;
