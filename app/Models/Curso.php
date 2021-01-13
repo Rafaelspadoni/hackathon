@@ -14,6 +14,6 @@ class Curso extends Model
     public function curso_cadastrado($curso_cadastrado)
 
     {
-
+        
     }
 }

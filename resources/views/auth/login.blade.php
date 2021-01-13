@@ -50,7 +50,7 @@
                 <x-button class="ml-3">
                     {{ __('Login') }}
                 </x-button>
-            </div>
+            </div> 
         </form>
     </x-auth-card>
 </x-guest-layout>
