@@ -52,7 +52,7 @@
                         <input type="text" name="name" id="name" required>
                     </div>
                     <div class="form-item">
-                        <label for="email">Seu email favorito:</label> <br>
+                        <label for="email">Seu melhor Email:</label> <br>
                         <input type="email" name="email" id="email" required>
                     </div>
                     <div class="form-item">
@@ -63,7 +63,7 @@
                         <input type="password" name="password_confirmation" id="password_confirmation" required>
                     </div>
                     <br>
-                    <button>Registrar!</button>
+                    <button>Tô dentro!</button>
                 </form>
             </div>
         </div>
