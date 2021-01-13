@@ -34,13 +34,15 @@ nav{
 /* home */
 
 .home{
-    height: 91.5vh;
+    height: 100vh;
 }
 
 .img-home{
     height: 100%;
     background-image: url('/img/home-img.jpg');
     background-position: 10% 5%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .registro{
     display: flex;
