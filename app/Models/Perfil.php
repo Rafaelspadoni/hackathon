@@ -31,15 +31,8 @@ class Perfil extends Model
             'SELECT id, telefone FROM telefones WHERE user_id = :id',
             ['id' => $id]
         );
-
-        if(!$telefones)
-        {
-            echo 'nenhum telefone cadastrado';
-
-        }else
-        {  
             return $telefones;
-        }
+
     }
 
     public function deleta_telefone($id, $telefone_id)
@@ -50,14 +43,7 @@ class Perfil extends Model
             'user_id' => $id]
         );
 
-        if(!$telefones)
-        {
-            echo 'nenhum telefone cadastrado';
-
-        }else
-        {  
             return $telefones;
-        }
     }
 
 }

@@ -26,7 +26,7 @@ class PerfilController extends Controller
             'telefones' => $numeros,
             'nome' => $nome,
             'email' => $email, 
-            'experiencias' => ['nenhuma experiência cadastrada','nenhuma experiência cadastrada'],
+            'experiencias' => '',
             
             ]); 
     }
