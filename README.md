@@ -1,4 +1,4 @@
-![](D:\hackathon\etapa 2\hackathon\exporta.png)
+![](\exporta.png)
 
 
 
