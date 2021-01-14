@@ -29,7 +29,7 @@
           <span>{{ Auth::user()->name }} </span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="perfil">Meu Perfil</a>
+          <a class="dropdown-item" href="{{ route('perfil_usuario') }}">Meu Perfil</a>
           <div class="dropdown-divider"></div>
           <form action="{{ route('logout') }}" method="post"> @csrf <a class="dropdown-item" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a></form>
         </div>
