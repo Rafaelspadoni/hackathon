@@ -1,4 +1,4 @@
-![](.\exporta.png)
+![](exporta.png)
 
 
 
