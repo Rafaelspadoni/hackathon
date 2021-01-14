@@ -1,6 +1,8 @@
-@extends('layouts.layout')
+@extends('layouts.empresa-layout')
 
-@section('titulo', 'Empresa')
+@section('titulo', 'Home')
+
 @section('conteudo')
+
 @endsection
 

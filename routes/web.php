@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use  App\Http\Controllers\PerfilController;
 use  App\Http\Controllers\AcessoController;
+use  App\Http\Controllers\EmpresasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,12 @@ Route::prefix('/usuario')->group( function () {
 
 Route::get('/cadastro/telefone',[PerfilController::class, 'telefone_view'])->middleware(['auth']);
 
-Route::get('/empresa/cadastro',[EmpresasController::class, 'empresa'])->middleware(['auth']);
+Route::prefix('/empresa')->group( function () {
+    
+    Route::get('/home',[EmpresasController::class, 'empresa_home'])->middleware(['auth', 'e_empresa'])->name('empresa_home');
+    Route::get('/cadastrar/vaga',[EmpresasController::class, 'cadastrar_vaga'])->middleware(['auth', 'e_empresa'])->name('cadastrar_vaga');
+    Route::post('/cadastrar/vaga',[EmpresasController::class, 'guarda_vagas'])->middleware(['auth', 'e_empresa'])->name('guarda_vagas');
+});
 
 
 require __DIR__.'/auth.php';
