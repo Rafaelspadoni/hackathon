@@ -22,12 +22,18 @@ class PerfilController extends Controller
 
         
         // dd($numeros);
-        return view('usuario.perfil', ['telefones' => $numeros, 'nome' => $nome, 'email' => $email]); 
+        return view('usuario.perfil', [
+            'telefones' => $numeros,
+            'nome' => $nome,
+            'email' => $email, 
+            'experiencias' => ['nenhuma experiência cadastrada','nenhuma experiência cadastrada'],
+            
+            ]); 
     }
 
     public function telefone_view()
     {   
-        return view('perfil.telefone');
+        return view('usuario.telefone');
     }
     
     public function cadastro_telefone(Request $request)
@@ -39,11 +45,24 @@ class PerfilController extends Controller
         ]);
 
         $cadastro = new Perfil();
-        $cadastro->cadastra_telefone($id, $request->telefone);
+        $cadastrado = $cadastro->cadastra_telefone($id, $request->telefone);
 
-        if($cadastro){
-            echo 'sucesso';
+        if($cadastrado){
+            return redirect('usuario/perfil');
         }
 
+    }
+
+    public function remover_telefone(Request $request)
+    {
+        $id = Auth::user()->id;
+        $telefone_id = $request->telefone;
+
+        $deleta = new Perfil();
+        $deletado = $deleta->deleta_telefone($id, $telefone_id);
+      
+        if($deletado){
+            return redirect('usuario/perfil');
+        }
     }
 }
