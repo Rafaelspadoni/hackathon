@@ -15,7 +15,12 @@ class EmpresasController extends Controller
     
     public function empresa_home()
     {
-        return view('empresas.empresa');
+        $id = Auth::user()->id;
+        
+        $empresa = new empresa();
+        $vagas = $empresa->show_vagas($id);
+
+        return view('empresas.empresa', ['vagas' => $vagas]  );
     }
 
     public function cadastrar_vaga()
@@ -41,7 +46,7 @@ class EmpresasController extends Controller
             'tipo_de_contratacao' => 'required',
             'expiracao' => 'required|date',
             'salario' => 'string|nullable',
-            'link_de_vaga' => 'url'
+            'link_de_vaga' => 'url' 
         ]);
 
         $vaga = new empresa();

@@ -29,22 +29,16 @@ class empresa extends Model
 
         return $store;
 
-    }
+    } 
 
-    public function show_vagas($id)
+    public function show_vagas($empresa_id)
     {
         $vagas = DB::select(
             'SELECT * FROM vagas WHERE empresa_id = :empresa_id',
-            ['empresa_id' => $empresa_id, 
-            'cargo' => $cargo, 
-            'descricao' => $descricao, 
-            'local_de_trabalho' => $local_de_trabalho, 
-            'tipo_de_contratacao' => $tipo_de_contratacao, 
-            'expiracao' => $expiracao, 
-            'salario' => $salario, 
-            'link_da_vaga' => $link_da_vaga]
+            ['empresa_id' => $empresa_id]
         );
-            return $vagas;
+        
+        return $vagas;
 
     }
 
