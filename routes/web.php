@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\PerfilController;
 use  App\Http\Controllers\AcessoController;
 use  App\Http\Controllers\EmpresasController;
+use  App\Http\Controllers\AdministradorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,5 +50,12 @@ Route::prefix('/empresa')->group( function () {
     Route::post('/cadastrar/vaga',[EmpresasController::class, 'guarda_vagas'])->middleware(['auth', 'e_empresa'])->name('guarda_vagas');
 });
 
+
+Route::prefix('/administrador')->group( function () {
+    
+    Route::get('/home',[AdministradorController::class, 'administrador_home'])->middleware(['auth', 'e_administrador'])->name('administrador_home');
+    Route::get('/cadastrar/vaga',[EmpresasController::class, 'cadastrar_vaga'])->middleware(['auth', 'e_empresa'])->name('cadastrar_vaga');
+    Route::post('/cadastrar/vaga',[EmpresasController::class, 'guarda_vagas'])->middleware(['auth', 'e_empresa'])->name('guarda_vagas');
+});
 
 require __DIR__.'/auth.php';
