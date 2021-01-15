@@ -30,6 +30,10 @@ Route::prefix('/usuario')->group( function () {
     Route::get('/cadastro/telefone',[PerfilController::class, 'telefone_view'])->middleware(['auth', 'e_usuario'])->name('cadastra_telefone');
     Route::post('/cadastro/telefone', [PerfilController::class, 'cadastro_telefone'])->middleware(['auth', 'e_usuario'])->name('guarda_telefone');
     Route::post('/deletar/telefone/', [PerfilController::class, 'remover_telefone'])->middleware(['auth', 'e_usuario'])->name('deletar_telefone');
+   
+    Route::get('/cadastro/experiencia',[PerfilController::class, 'cadastro_experiencia'])->middleware(['auth', 'e_usuario'])->name('cadastro_experiencia');
+    Route::post('/cadastro/experiencia', [PerfilController::class, 'guarda_experiencia'])->middleware(['auth', 'e_usuario'])->name('guarda_experiencia');
+    Route::post('/deletar/experiencia/', [PerfilController::class, 'remover_experiencia'])->middleware(['auth', 'e_usuario'])->name('deletar_experiencia');
 
     Route::get('/home', [PerfilController::class, 'perfil'])->middleware(['auth', 'e_usuario']);
 });
