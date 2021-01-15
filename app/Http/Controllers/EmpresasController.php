@@ -40,13 +40,13 @@ class EmpresasController extends Controller
         $link_de_vaga = $request->link_de_vaga;
 
         $vagas = $request->validate([
-            'cargo' => 'required|string|min:5|max:80',
-            'descricao' => 'required|string|min:125|max:250',
-            'local_de_trabalho' => 'required|string|min:25|max:150',
+            'cargo' => 'required|string|max:80',
+            'descricao' => 'required|string|max:250',
+            'local_de_trabalho' => 'required|string|max:150',
             'tipo_de_contratacao' => 'required',
             'expiracao' => 'required|date',
             'salario' => 'string|nullable',
-            'link_de_vaga' => 'url' 
+            'link_de_vaga' => 'url|nullable' 
         ]);
 
         $vaga = new empresa();

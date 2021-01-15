@@ -35,22 +35,22 @@
         <div class="form-item">
             <label for="tipo_de_contratacao">Tipo da contratação:</label> <br>
             <select name="tipo_de_contratacao" id="tipo_de_contratacao" required>
-            <option> Integral </option>
-            <option> Meio Período </option>
-            <option> Home Office </option>
+            <option value="1"> Integral </option>
+            <option value="2"> Meio Período </option>
+            <option value="3"> Home Office </option>
             </select>
         </div>
         <div class="form-item">
             <label for="expiracao">Data de Expiração:</label> <br>
             <input type="date" name="expiracao" id="expiracao" required>
         </div>
-        <div class="form-item" align="center">
+        <div class="form-item">
             <label for="salario" text-align="right">Faixa Salarial</label> <br>
         <input type="number" name="salario" id="salario" style="text-align: center;">
         </div>
         <div class="form-item">
             <label for="link_de_vaga">Link da vaga</label> <br>
-            <input type="text" name="link_de_vaga" id="link_de_vaga">
+            <input type="url" name="link_de_vaga" id="link_de_vaga">
         </div>
         <br>
         <button>Criar Vaga</button>

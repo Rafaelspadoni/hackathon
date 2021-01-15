@@ -81,4 +81,40 @@ class Perfil extends Model
             return $experiencia;
     }
 
+    public function cadastra_certificacao($id, $nome, $descricao, $certificadora, $concessao, $link_da_certificacao)
+    {
+        $cadastro = DB::insert(
+            'INSERT INTO certificacoes (user_id, nome, descricao, certificadora, concessao, link_da_certificacao) VALUES ( :id , :nome, :descricao, :certificadora, :concessao, :link_da_certificacao)',[
+                'id' => $id,
+                'nome' => $nome,
+                'descricao' => $descricao,
+                'certificadora' => $certificadora,
+                'concessao' => $concessao,
+                'link_da_certificacao' => $link_da_certificacao,
+                ]);
+
+        return $cadastro;
+    }
+
+    public function show_certificacao($id)
+    {
+        $certificacao = DB::select(
+            'SELECT * FROM certificacoes WHERE user_id = :id',
+            ['id' => $id]
+        );
+            return $certificacao;
+
+    }
+
+    public function deleta_certificacao($id, $certificacao_id)
+    {
+        $certificacao = DB::delete(
+            'DELETE FROM certificacoes WHERE id = :certificacao_id AND user_id = :user_id',
+            ['certificacao_id' => $certificacao_id,
+            'user_id' => $id]
+        ); 
+
+            return $certificacao;
+    }
+
 }

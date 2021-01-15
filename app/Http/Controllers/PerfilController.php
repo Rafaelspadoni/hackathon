@@ -20,6 +20,7 @@ class PerfilController extends Controller
         $perfil = new Perfil();
         $numeros = $perfil->show_telefone($id);
         $experiencias = $perfil->show_experiencia($id);
+        $certificacoes = $perfil->show_certificacao($id);
 
 
         return view('usuario.perfil', [
@@ -27,7 +28,7 @@ class PerfilController extends Controller
             'nome' => $nome,
             'email' => $email, 
             'experiencias' => $experiencias,
-            
+            'certificacoes' => $certificacoes,
             ]); 
     }
 
@@ -96,6 +97,43 @@ class PerfilController extends Controller
 
         $deleta = new Perfil();
         $deletado = $deleta->deleta_experiencia($id, $experiencia_id);
+      
+        if($deletado){
+            return redirect('usuario/perfil');
+        }
+    }
+
+    public function cadastro_certificacao()
+    {
+        return view('usuario.certificacao');
+    }
+
+    public function guarda_certificacao(Request $request)
+    {
+        $id = Auth::user()->id;
+
+        $validacao = $request->validate([
+            'nome' => 'required|min:5|max:50|string',
+            'descricao' => 'min:5|max:150|string',
+            'certificadora' => 'required|min:5|max:200|string',
+            'concessao' => 'required|date_format:Y-m-d',
+            'link_da_certificacao' => 'min:5|max:200|string',
+        ]);
+
+        $certificacao = new Perfil();
+        $cadastrado = $certificacao->cadastra_certificacao($id, $request->nome, $request->descricao, $request->certificadora, $request->concessao, $request->link_da_certificacao);
+        
+        if($cadastrado){
+            return redirect('usuario/perfil');
+        }
+    }
+    public function remover_certificacao(Request $request)
+    {
+        $id = Auth::user()->id;
+        $certificacao_id = $request->certificacao;
+
+        $deleta = new Perfil();
+        $deletado = $deleta->deleta_certificacao($id, $certificacao_id);
       
         if($deletado){
             return redirect('usuario/perfil');

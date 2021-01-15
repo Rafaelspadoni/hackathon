@@ -55,7 +55,7 @@
 
 <hr>
 
-<div class="row">
+    <div class="row">
         <div class="col-md-12">
         <div class="item"><div class="titulo">Experiência(s):</div>
 
@@ -86,6 +86,56 @@
             @endforeach
         @else
             <h3>Nenhuma Experiência Cadastrada</h3>
+        @endif    
+
+
+        
+        </div>
+        </div>
+    </div>
+
+<hr>
+
+    <div class="row">
+        <div class="col-md-12">
+        <div class="item"><div class="titulo">Certificações:</div>
+
+        <a href="{{ route('cadastro_certificacao') }}">Adicionar Certificação</a>
+       
+        @if ($certificacoes)
+            @foreach ($certificacoes as $certificacao)
+               <div style="margin-top: 10px">
+                    <table>
+                        <tr>
+                            <td class="titulo">
+                                {{ $certificacao->nome }} 
+                            </td>
+                            <td><form action="{{ route('deletar_certificacao') }}" method="post" style="width: 175px; display: inline-block "> @csrf <input type="hidden" name="certificacao" value=" {{ $certificacao->id }} " /> <a class="dropdown-item" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Excluir Certificação</a></form></td>
+                        </tr>
+                    </table>
+                    <div>
+                        <strong>Certificadora: </strong> {{ $certificacao->certificadora }}
+                    </div>
+                    @if ($certificacao->descricao)
+                        <div>
+                            <strong>Descrição: </strong> {{ $certificacao->descricao }}
+                        </div>
+                    @else
+                    @endif
+                    <div>
+                        <strong>Data de Concessão: </strong> {{ $certificacao->concessao }}
+                    </div>
+                    @if ($certificacao->link_da_certificacao)
+                        <div>
+                            <a href=" {{ $certificacao->link_da_certificacao }} " target="__blank">Abrir Certificação</a>
+                        </div>
+                    @else
+                    @endif   
+
+               </div>
+            @endforeach
+        @else
+            <h3>Nenhuma Certificação Cadastrada</h3>
         @endif    
 
 

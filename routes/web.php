@@ -36,6 +36,11 @@ Route::prefix('/usuario')->group( function () {
     Route::post('/cadastro/experiencia', [PerfilController::class, 'guarda_experiencia'])->middleware(['auth', 'e_usuario'])->name('guarda_experiencia');
     Route::post('/deletar/experiencia/', [PerfilController::class, 'remover_experiencia'])->middleware(['auth', 'e_usuario'])->name('deletar_experiencia');
 
+    Route::get('/cadastro/certificacao',[PerfilController::class, 'cadastro_certificacao'])->middleware(['auth', 'e_usuario'])->name('cadastro_certificacao');
+    Route::post('/cadastro/certificacao', [PerfilController::class, 'guarda_certificacao'])->middleware(['auth', 'e_usuario'])->name('guarda_certificacao');
+    Route::post('/deletar/certificacao/', [PerfilController::class, 'remover_certificacao'])->middleware(['auth', 'e_usuario'])->name('deletar_certificacao');
+
+
     Route::get('/home', [PerfilController::class, 'perfil'])->middleware(['auth', 'e_usuario']);
 });
 
