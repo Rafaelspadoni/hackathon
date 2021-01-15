@@ -107,16 +107,22 @@ form button:active{
     border: 3px solid #ffffff;
 }
 
-
+.titulo{
+    font-weight: 700;
+    font-size: 25px;
+}
 
 
 
 footer{
-    position: absolute;
     bottom: 0;
+    background-color: rgb(41, 37, 37);
+    color: honeydew;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* text-transform: uppercase; */
+    height: 40px;
+    font-weight: 600;
 }

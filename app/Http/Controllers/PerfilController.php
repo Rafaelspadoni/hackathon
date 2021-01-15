@@ -17,16 +17,16 @@ class PerfilController extends Controller
         $nome = Auth::user()->name;
         $email = Auth::user()->email;
         
-        $telefones = new Perfil();
-        $numeros = $telefones->show_telefone($id);
+        $perfil = new Perfil();
+        $numeros = $perfil->show_telefone($id);
+        $experiencias = $perfil->show_experiencia($id);
 
-        
-        // dd($numeros);
+
         return view('usuario.perfil', [
             'telefones' => $numeros,
             'nome' => $nome,
             'email' => $email, 
-            'experiencias' => '',
+            'experiencias' => $experiencias,
             
             ]); 
     }
@@ -65,4 +65,41 @@ class PerfilController extends Controller
             return redirect('usuario/perfil');
         }
     }
+
+    public function cadastro_experiencia()
+    {
+        return view('usuario.experiencia');
+    }
+
+    public function guarda_experiencia(Request $request)
+    {
+        $id = Auth::user()->id;
+
+        $validacao = $request->validate([
+            'cargo' => 'required|min:5|max:50|string',
+            'local' => 'required|min:5|max:50|string',
+            'descricao' => 'required|min:5|max:200|string',
+            'data' => 'required|date_format:Y-m-d'
+        ]);
+
+        $experiencia = new Perfil();
+        $cadastrado = $experiencia->cadastra_experiencia($id, $request->cargo, $request->local, $request->descricao, $request->data);
+        
+        if($cadastrado){
+            return redirect('usuario/perfil');
+        }
+    }
+    public function remover_experiencia(Request $request)
+    {
+        $id = Auth::user()->id;
+        $experiencia_id = $request->experiencia;
+
+        $deleta = new Perfil();
+        $deletado = $deleta->deleta_experiencia($id, $experiencia_id);
+      
+        if($deletado){
+            return redirect('usuario/perfil');
+        }
+    }
+
 }

@@ -46,4 +46,39 @@ class Perfil extends Model
             return $telefones;
     }
 
+    public function cadastra_experiencia($id, $cargo, $local, $descricao, $data)
+    {
+        $cadastro = DB::insert(
+            'INSERT INTO experiencias (user_id, cargo, local, descricao, data) VALUES ( :id , :cargo , :local , :descricao , :data )',[
+                'id' => $id,
+                'cargo' => $cargo,
+                'local' => $local,
+                'descricao' => $descricao,
+                'data' => $data
+                ]);
+
+        return $cadastro;
+    }
+
+    public function show_experiencia($id)
+    {
+        $experiencia = DB::select(
+            'SELECT id, cargo, local, descricao, data FROM experiencias WHERE user_id = :id',
+            ['id' => $id]
+        );
+            return $experiencia;
+
+    }
+
+    public function deleta_experiencia($id, $experiencia_id)
+    {
+        $experiencia = DB::delete(
+            'DELETE FROM experiencias WHERE id = :experiencia_id AND user_id = :user_id',
+            ['experiencia_id' => $experiencia_id,
+            'user_id' => $id]
+        );
+
+            return $experiencia;
+    }
+
 }

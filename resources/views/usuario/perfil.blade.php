@@ -59,15 +59,37 @@
         <div class="col-md-12">
         <div class="item"><div class="titulo">Experiência(s):</div>
 
-        <table>
+        <a href="{{ route('cadastro_experiencia') }}">Adicionar Experiencia</a>
+       
         @if ($experiencias)
-          
+            @foreach ($experiencias as $experiencia)
+               <div style="margin-top: 10px">
+                    <table>
+                        <tr>
+                            <td class="titulo">
+                                {{ $experiencia->cargo }} 
+                            </td>
+                            <td><form action="{{ route('deletar_experiencia') }}" method="post" style="width: 175px; display: inline-block "> @csrf <input type="hidden" name="experiencia" value=" {{ $experiencia->id }} " /> <a class="dropdown-item" href="#" onclick="event.preventDefault(); this.closest('form').submit();">Excluir experiência</a></form></td>
+                        </tr>
+                    </table>
+                    <div>
+                    <strong>Local: </strong> {{ $experiencia->local }}
+                    </div>
+                    <div>
+                    <strong>Descrição: </strong> {{ $experiencia->descricao }}
+                    </div>
+                    <div>
+                    <strong>Data: </strong> {{ $experiencia->data }}
+                    </div>
+
+               </div>
+            @endforeach
         @else
             <h3>Nenhuma Experiência Cadastrada</h3>
         @endif    
-        </table>
 
-        <a href="{{ route('cadastra_telefone') }}">Adicionar Telefone</a>
+
+        
         </div>
         </div>
     </div>
