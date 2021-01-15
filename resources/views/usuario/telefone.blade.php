@@ -14,7 +14,7 @@
     </div>
 @endif
 
-<form action="{{ route('cadastra_telefone') }}" method="post">
+<form action="{{ route('guarda_telefone') }}" method="post">
 
 @csrf
 

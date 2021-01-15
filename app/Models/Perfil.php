@@ -28,19 +28,22 @@ class Perfil extends Model
     public function show_telefone($id)
     {
         $telefones = DB::select(
-            'SELECT telefone FROM telefones WHERE user_id = :id',
+            'SELECT id, telefone FROM telefones WHERE user_id = :id',
             ['id' => $id]
         );
-
-        if(!$telefones)
-        {
-            echo 'nenhum telefone cadastrado';
-
-        }else
-        {  
             return $telefones;
-        }
+
     }
 
+    public function deleta_telefone($id, $telefone_id)
+    {
+        $telefones = DB::delete(
+            'DELETE FROM telefones WHERE id = :telefone_id AND user_id = :user_id',
+            ['telefone_id' => $telefone_id,
+            'user_id' => $id]
+        );
+
+            return $telefones;
+    }
 
 }
