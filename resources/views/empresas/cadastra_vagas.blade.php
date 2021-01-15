@@ -26,7 +26,7 @@
         </div>
         <div class="form-item">
             <label for="descricao">Descrição da vaga:</label> <br>
-            <input type="text" name="descricao" id="descricao" required>
+            <input type="text"  name="descricao" id="descricao" required>
         </div>
         <div class="form-item">
             <label for="local_de_trabalho">Município da vaga:</label> <br>
@@ -34,15 +34,19 @@
         </div>
         <div class="form-item">
             <label for="tipo_de_contratacao">Tipo da contratação:</label> <br>
-            <input type="text" name="tipo_de_contratacao" id="tipo_de_contratacao" required>
+            <select name="tipo_de_contratacao" id="tipo_de_contratacao" required>
+            <option> Integral </option>
+            <option> Meio Período </option>
+            <option> Home Office </option>
+            </select>
         </div>
         <div class="form-item">
             <label for="expiracao">Data de Expiração:</label> <br>
             <input type="date" name="expiracao" id="expiracao" required>
         </div>
-        <div class="form-item">
-            <label for="salario">Faixa Salarial</label> <br>
-            <input type="text" name="salario" id="salario">
+        <div class="form-item" align="center">
+            <label for="salario" text-align="right">Faixa Salarial</label> <br>
+        <input type="number" name="salario" id="salario" style="text-align: center;">
         </div>
         <div class="form-item">
             <label for="link_de_vaga">Link da vaga</label> <br>
