@@ -22,12 +22,11 @@
 	</div>
 </nav>
 
-<div class="container-fluid home">
-    <div class="row home">
-        <div class="col-md-7 img-home home">
-        
+<div class="container-fluid cem-height">
+    <div class="row cem-height">
+        <div class="col-md-7 img-home cem-height">
         </div>
-        <div class="col-md-5 registro home">
+        <div class="col-md-5 registro">
 
             <div class="form">
 

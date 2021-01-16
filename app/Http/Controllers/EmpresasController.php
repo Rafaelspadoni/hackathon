@@ -54,9 +54,21 @@ class EmpresasController extends Controller
         $guarda = $vaga->store_vaga($empresa_id, $cargo, $descricao, $local_de_trabalho, $tipo_de_contratacao, $expiracao, $salario, $link_de_vaga);
 
         if($guarda){
-
+            return redirect('empresa/home');
         }
 
+    }
+    public function remover_vaga(Request $request)
+    {
+        $id = Auth::user()->id;
+        $vaga_id = $request->vaga;
+
+        $deleta = new empresa();
+        $deletado = $deleta->deleta_vaga($id, $vaga_id);
+      
+        if($deletado){
+            return redirect('empresa/home');
+        }
     }
 
 
